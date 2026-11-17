@@ -1,0 +1,116 @@
+@url = http://localhost:5185
+
+### 01 - API está online (200)
+GET {{url}}/
+
+### 02 - GET lista de idosos (200)
+GET {{url}}/api/idosos
+
+### 03 - POST cadastrar idoso (201) - anote o ID recebido
+POST {{url}}/api/idosos
+Content-Type: application/json
+
+{
+  "nome": "Maria da Silva",
+  "telefone": "11999998888",
+  "cidade": "São Paulo"
+}
+
+### 04 - GET idoso por ID (200) - troque 1 pelo ID recebido
+GET {{url}}/api/idosos/1
+
+### 05 - PUT atualizar idoso (204)
+PUT {{url}}/api/idosos/1
+Content-Type: application/json
+
+{
+  "nome": "Maria da Silva",
+  "telefone": "11977776666",
+  "cidade": "São Paulo"
+}
+
+### 06 - POST inválido (400): nome curto e cidade vazia
+POST {{url}}/api/idosos
+Content-Type: application/json
+
+{
+  "nome": "A",
+  "telefone": "11999998888",
+  "cidade": ""
+}
+
+### 07 - GET ID inexistente (404)
+GET {{url}}/api/idosos/999999
+
+### 08 - POST solicitação (201) - use IdosoId existente
+POST {{url}}/api/solicitacoes
+Content-Type: application/json
+
+{
+  "idosoId": 1,
+  "tipo": "ORIENTACAO",
+  "descricao": "Preciso de ajuda para entender como acessar um serviço de saúde.",
+  "status": "PENDENTE"
+}
+
+### 08B - POST segunda solicitacao para o mesmo idoso (201)
+POST {{url}}/api/solicitacoes
+Content-Type: application/json
+
+{
+  "idosoId": 1,
+  "tipo": "ORIENTACAO",
+  "descricao": "Preciso de ajuda para obter informacoes sobre uma consulta de saude.",
+  "status": "PENDENTE"
+}
+
+
+### 09 - GET lista de solicitações (200)
+GET {{url}}/api/solicitacoes
+
+### 10 - GET solicitação por ID (200) - substitua o ID
+GET {{url}}/api/solicitacoes/2
+
+### 11 - PUT solicitação (204) - substitua o ID
+PUT {{url}}/api/solicitacoes/2
+Content-Type: application/json
+
+{
+  "idosoId": 1,
+  "tipo": "ORIENTACAO",
+  "descricao": "Recebi informações sobre o serviço de saúde e estou acompanhando.",
+  "status": "EM_ATENDIMENTO"
+}
+
+### 11 - PUT atualizar solicitacao 2 (204)
+PUT {{url}}/api/solicitacoes/2
+Content-Type: application/json
+
+{
+  "idosoId": 1,
+  "tipo": "ORIENTACAO",
+  "descricao": "Recebi as orientacoes necessarias para acessar o servico de saude.",
+  "status": "CONCLUIDA"
+}
+
+### 13 - DELETE solicitação (204) - substitua o ID
+DELETE {{url}}/api/solicitacoes/2
+
+### 14 - DELETE idoso (204) - execute somente depois de registrar os prints
+DELETE {{url}}/api/idosos/1
+
+### 15 - POST cadastrar idoso para teste de exclusao (201)
+POST {{url}}/api/idosos
+Content-Type: application/json
+
+{
+  "nome": "Jose Carlos Oliveira",
+  "telefone": "11988887777",
+  "cidade": "Sao Paulo"
+}
+
+### 16 - DELETE idoso de teste (204)
+DELETE {{url}}/api/idosos/2
+
+### 17 - GET confirmar exclusao do idoso (404)
+GET {{url}}/api/idosos/2
