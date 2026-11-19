@@ -268,3 +268,26 @@ O `INNER JOIN` une as tabelas pelo ID do idoso. Na demonstração, Maria apareci
 - [Capturas dos testes](docs/EVIDENCIAS/)
 
 O projeto usa apenas registros fictícios para fins de demonstração e aprendizagem.
+
+
+## 13. Vídeo demonstrativo — Global Solution .NET
+
+A apresentação em vídeo demonstra o funcionamento do projeto
+AMPARO SUS, desenvolvido em C# com ASP.NET Core 8 e
+banco de dados Oracle.
+
+Durante a demonstração, apresentamos:
+
+- Estrutura da aplicação e organização do projeto.
+- Execução da API em .NET 8.
+- Operações CRUD de idosos e solicitações de apoio.
+- Testes das requisições HTTP.
+- Consultas SQL e persistência dos dados no Oracle.
+- Relacionamento entre as tabelas.
+
+🎬 **Assista à apresentação completa:**
+
+[▶ Vídeo demonstrativo AMPARO SUS — .NET (YouTube)](https://www.youtube.com/watch?v=oTjTl1D-5A8)
+
+**Repositório:** https://github.com/Denise-ss/AMPARO_SUS_NET
+
